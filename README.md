@@ -13,7 +13,7 @@ This script searches for unused components in your Ember project. It supports:
  - `ember-light-table`'s way of defining `cellComponent: 'component-name'` and `component: 'component-name'`
  - `(component "component-name")` helper used in templates
  - ignoring files,
- - whitelisting components unused temporary,
+ - allowlisting components unused temporary,
  - addons,
  - and components being used in addons with `--includeAddons` option.
 
@@ -161,7 +161,7 @@ First, you need to create `.eucrc.js` file in the root directory:
 
 ```js
 module.exports = {
-  whitelist: [
+  allowlist: [
     'app/app-tab-panel' // we will use it again soon
   ],
   ignore: [
@@ -171,7 +171,7 @@ module.exports = {
 };
 ```
 
-### Whitelist
+### Allowlist
 
 You can specify which components should not be treated as unused even if the script couldn't find their usage occurrences. This happens when:
  - you know that the component will be used in the future and you don't want to remove it and being reminded of that
@@ -203,10 +203,10 @@ Which may result in having following components in use:
 
 Unfortunately, this static analysis tool doesn't understand it yet and doesn't know that your component `car-card-suv`
 has been used anywhere.
-You can whitelist these components from being marked as unused by referencing to them directly:
+You can allowlist these components from being marked as unused by referencing to them directly:
 ```js
 module.exports = {
-  whitelist: [
+  allowlist: [
     'car-card-suv',
     'car-card-sport',
     'car-card-sedan'
@@ -216,7 +216,7 @@ module.exports = {
 or by using wildcard:
 ```js
 module.exports = {
-  whitelist: ['car-card-*']
+  allowlist: ['car-card-*']
 };
 ```
 

@@ -8,7 +8,7 @@ function setup() {
   let config = utils.getConfig(commandOptions);
   analyser.mapComponents(config);
   analyser.scanProject(config);
-  analyser.respectWhitelist(config.whitelist);
+  analyser.respectAllowlist(config.allowlist);
 
   return analyser.components;
 }

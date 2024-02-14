@@ -50,10 +50,10 @@ function main() {
     console.log(config.sourcePaths);
   }
 
-  analyser.respectWhitelist(config.whitelist);
+  analyser.respectAllowlist(config.allowlist);
 
   console.log(colors.dim('[3/3]'), '✔️  Done');
-  analyser.logResults(commandOptions.stats, commandOptions.occurrences, config.whitelist);
+  analyser.logResults(commandOptions.stats, commandOptions.occurrences, config.allowlist);
 
   if (config.failOnUnused && analyser.unusedComponents.length) {
     throw new Error(`You have ${analyser.unusedComponents.length} unused components.`);

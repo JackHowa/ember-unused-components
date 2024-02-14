@@ -10,7 +10,7 @@ test('3.10 + Module Unification - get config', t => {
     ignore: ['src/ui/routes/application/freestyle.hbs'],
     includeAddons: false,
     isAddon: false,
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
     failOnUnused: false,
   };
@@ -25,7 +25,7 @@ test('3.10 + Module Unification - map components', t => {
     sourcePaths: ['/test-apps/ember_3_10_mu/src'],
     projectRoot: '/test-apps/ember_3_10_mu/',
     ignore: ['src/ui/routes/application/freestyle.hbs'],
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
   };
 
@@ -74,7 +74,7 @@ test('3.10 + Module Unification - map components', t => {
   );
   t.deepEqual(
     Object.values(analyser.components)
-      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .filter(c => c.stats.count == 0 && !c.allowlisted)
       .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
@@ -86,7 +86,7 @@ test('3.10 + Module Unification - look for unused components and calculate stats
     sourcePaths: ['/test-apps/ember_3_10_mu/src/'],
     projectRoot: '/test-apps/ember_3_10_mu/',
     ignore: ['src/ui/routes/application/freestyle.hbs'],
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: ['/test-apps/ember_3_10_mu/src/ui/components'],
   };
 
@@ -171,7 +171,7 @@ test('3.10 + Module Unification - look for unused components and calculate stats
   };
 
   analyser.scanProject(config);
-  analyser.respectWhitelist(config.whitelist);
+  analyser.respectAllowlist(config.allowlist);
 
   t.deepEqual(
     Object.values(analyser.components).map(c => c.key),
@@ -180,7 +180,7 @@ test('3.10 + Module Unification - look for unused components and calculate stats
   );
   t.deepEqual(
     Object.values(analyser.components)
-      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .filter(c => c.stats.count == 0 && !c.allowlisted)
       .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components'

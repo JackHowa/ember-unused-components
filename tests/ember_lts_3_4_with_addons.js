@@ -13,7 +13,7 @@ test('3.4 LTS with addons - get config', t => {
     includeAddons: true,
     filterAddonsBy: '*',
     isAddon: false,
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: [
       '/test-apps/ember_lts_3_4_with_addons/app/components',
       '/test-apps/ember_lts_3_4_with_addons/app/templates/components',
@@ -39,7 +39,7 @@ test('3.4 LTS with addons - get config with wildcard addon', t => {
     filterAddonsBy: 'company-b*',
     includeAddons: true,
     isAddon: false,
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: [
       '/test-apps/ember_lts_3_4_with_addons/app/components',
       '/test-apps/ember_lts_3_4_with_addons/app/templates/components',
@@ -66,7 +66,7 @@ test('3.4 LTS with addon - map components', t => {
     projectRoot: '/test-apps/ember_lts_3_4_with_addons/',
     includeAddons: true,
     ignore: ['app/templates/freestyle.hbs'],
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: [
       '/test-apps/ember_lts_3_4_with_addons/app/components',
       '/test-apps/ember_lts_3_4_with_addons/app/templates/components',
@@ -123,7 +123,7 @@ test('3.4 LTS with addon - map components', t => {
   );
   t.deepEqual(
     Object.values(analyser.components)
-      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .filter(c => c.stats.count == 0 && !c.allowlisted)
       .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
@@ -135,7 +135,7 @@ test('3.4 LTS - look for unused components and calculate stats', t => {
     sourcePaths: ['/test-apps/ember_lts_3_4_with_addons/app'],
     projectRoot: '/test-apps/ember_lts_3_4_with_addons/',
     ignore: ['app/templates/freestyle.hbs'],
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: ['/test-apps/ember_lts_3_4_with_addons/app/components'],
   };
 
@@ -245,7 +245,7 @@ test('3.4 LTS - look for unused components and calculate stats', t => {
   };
 
   analyser.scanProject(config);
-  analyser.respectWhitelist(config.whitelist);
+  analyser.respectAllowlist(config.allowlist);
 
   t.deepEqual(
     Object.values(analyser.components).map(c => c.key),
@@ -254,7 +254,7 @@ test('3.4 LTS - look for unused components and calculate stats', t => {
   );
   t.deepEqual(
     Object.values(analyser.components)
-      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .filter(c => c.stats.count == 0 && !c.allowlisted)
       .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components'

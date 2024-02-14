@@ -10,7 +10,7 @@ test('3.4 Addon - get config', t => {
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
     isAddon: true,
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: [
       '/test-apps/ember_addon_3_13/app/components',
       '/test-apps/ember_addon_3_13/addon/components',
@@ -29,7 +29,7 @@ test('3.4 Addon - map components', t => {
     sourcePaths: ['/test-apps/ember_addon_3_13/addon'],
     projectRoot: '/test-apps/ember_addon_3_13/',
     ignore: ['app/templates/freestyle.hbs'],
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     isAddon: true,
     componentPaths: [
       '/test-apps/ember_addon_3_13/app/components',
@@ -81,7 +81,7 @@ test('3.4 Addon - map components', t => {
   );
   t.deepEqual(
     Object.values(analyser.components)
-      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .filter(c => c.stats.count == 0 && !c.allowlisted)
       .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
@@ -93,7 +93,7 @@ test('3.4 Addon - look for unused components and calculate stats', t => {
     sourcePaths: ['/test-apps/ember_addon_3_13/app', '/test-apps/ember_addon_3_13/addon'],
     projectRoot: '/test-apps/ember_addon_3_13/',
     ignore: ['app/templates/freestyle.hbs'],
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: [
       '/test-apps/ember_addon_3_13/app/components',
       '/test-apps/ember_addon_3_13/addon/components',
@@ -191,7 +191,7 @@ test('3.4 Addon - look for unused components and calculate stats', t => {
   };
 
   analyser.scanProject(config);
-  analyser.respectWhitelist(config.whitelist);
+  analyser.respectAllowlist(config.allowlist);
 
   t.deepEqual(
     Object.values(analyser.components).map(c => c.key),
@@ -200,7 +200,7 @@ test('3.4 Addon - look for unused components and calculate stats', t => {
   );
   t.deepEqual(
     Object.values(analyser.components)
-      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .filter(c => c.stats.count == 0 && !c.allowlisted)
       .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components'

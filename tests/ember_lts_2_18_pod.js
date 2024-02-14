@@ -10,7 +10,7 @@ test('2.18 LTS POD - get config', t => {
     ignore: ['app/templates/freestyle.hbs'],
     includeAddons: false,
     isAddon: false,
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: ['/test-apps/ember_lts_2_18_pod/app/modules/components'],
     failOnUnused: false,
   };
@@ -25,7 +25,7 @@ test('2.18 LTS POD - map components', t => {
     sourcePaths: ['/test-apps/ember_lts_2_18_pod/app'],
     projectRoot: '/test-apps/ember_lts_2_18_pod/',
     ignore: ['app/templates/freestyle.hbs'],
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: ['/test-apps/ember_lts_2_18_pod/app/modules/components'],
   };
 
@@ -60,7 +60,7 @@ test('2.18 LTS POD - map components', t => {
   );
   t.deepEqual(
     Object.values(analyser.components)
-      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .filter(c => c.stats.count == 0 && !c.allowlisted)
       .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components at this stage'
@@ -72,7 +72,7 @@ test('2.18 LTS POD - look for unused components and calculate stats', t => {
     sourcePaths: ['/test-apps/ember_lts_2_18_pod/app'],
     projectRoot: '/test-apps/ember_lts_2_18_pod/',
     ignore: ['app/templates/freestyle.hbs'],
-    whitelist: ['z-button'],
+    allowlist: ['z-button'],
     componentPaths: ['/test-apps/ember_lts_2_18_pod/app/modules/components'],
   };
 
@@ -131,7 +131,7 @@ test('2.18 LTS POD - look for unused components and calculate stats', t => {
   };
 
   analyser.scanProject(config);
-  analyser.respectWhitelist(config.whitelist);
+  analyser.respectAllowlist(config.allowlist);
 
   t.deepEqual(
     Object.values(analyser.components).map(c => c.key),
@@ -140,7 +140,7 @@ test('2.18 LTS POD - look for unused components and calculate stats', t => {
   );
   t.deepEqual(
     Object.values(analyser.components)
-      .filter(c => c.stats.count == 0 && !c.whitelisted)
+      .filter(c => c.stats.count == 0 && !c.allowlisted)
       .map(c => c.key),
     expectedUnusedComponents,
     'has proper list of unused components'
