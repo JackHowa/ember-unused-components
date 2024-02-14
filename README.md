@@ -1,7 +1,6 @@
-[![npm version](https://badge.fury.io/js/ember-unused-components.svg)](https://badge.fury.io/js/ember-unused-components)
-[![Build Status](https://travis-ci.org/vastec/ember-unused-components.svg?branch=master)](https://travis-ci.org/vastec/ember-unused-components)
+[![npm version](https://badge.fury.io/js/@thrash-industries%2Fember-unused-components.svg)](https://badge.fury.io/js/@thrash-industries%2Fember-unused-components)
 
-ember-unused-components
+@thrash-industries/ember-unused-components
 ==============================================================================
 
 This script searches for unused components in your Ember project. It supports:
