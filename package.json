@@ -1,6 +1,6 @@
 {
   "name": "@thrash-industries/ember-unused-components",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Search for unused components in your Ember project",
   "keywords": [
     "ember",
