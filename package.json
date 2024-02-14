@@ -1,6 +1,6 @@
 {
-  "name": "ember-unused-components",
-  "version": "1.2.1",
+  "name": "@thrash-industries/ember-unused-components",
+  "version": "2.0.0",
   "description": "Search for unused components in your Ember project",
   "keywords": [
     "ember",
@@ -8,7 +8,7 @@
     "cleanup",
     "unused"
   ],
-  "repository": "https://github.com/vastec/ember-unused-components.git",
+  "repository": "https://github.com/JackHowa/ember-unused-components.git",
   "license": "MIT",
   "author": "Tomasz Nieżurawski <tomasz@niezurawski.pl>",
   "directories": {
