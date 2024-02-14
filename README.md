@@ -22,13 +22,13 @@ Installation
 ------------------------------------------------------------------------------
 
 ```bash
-$ yarn add -D ember-unused-components
+$ yarn add -D @thrash-industries/ember-unused-components
 ```
 
 or
 
 ```bash
-$ npm install ember-unused-components --save-dev
+$ npm install @thrash-industries/ember-unused-components --save-dev
 ```
 
 Usage
@@ -36,14 +36,10 @@ Usage
 
 Run in your app root directory:
 
-```bash
-$ ./node_modules/.bin/ember-unused-components
-```
 
-or
 
 ```bash
-$ npx ember-unused-components
+$ npx @thrash-industries/ember-unused-components
 ```
 
 Expected output (simplified):
@@ -65,7 +61,7 @@ If you feel like there are too many components listed then check [Configuration 
 Make sure to try optional parameter `--stats` so you'll see some interesting stuff:
 
 ```bash
-$ npx ember-unused-components --stats
+$ npx @thrash-industries/ember-unused-components --stats
 
  No. of components: 304
  No. of unused components: 8 (2.63%)
@@ -92,7 +88,7 @@ $ npx ember-unused-components --stats
 You can also print all occurrences of components that were found. Use `--occurrences` or `--o`:
 
 ```bash
-$ npx ember-unused-components --occurrences
+$ npx @thrash-industries/ember-unused-components --occurrences
 
 // simplified
 
@@ -112,7 +108,7 @@ welcome-page:
 You can also print all occurrences of components that were found in included addons. Use `--includeAddons` to include all found addons, or `includeAddons=company-*` to only include addons that match `company-*`
 
 ```bash
-$ npx ember-unused-components --occurrences --includeAddons=company-*
+$ npx @thrash-industries/ember-unused-components --occurrences --includeAddons=company-*
 
 // simplified
 
@@ -139,7 +135,7 @@ If you have problems with that, consider:
 To force using POD use `--pods` argument (alias: `-p`). Like this:
 
 ```bash
-$ npx ember-unused-components --pods
+$ npx @thrash-industries/ember-unused-components --pods
 ```
 
 The script will use the default directory of POD components: `app/components`. **Please let me know** if you had to force using POD. I made a simple guessing algorithm that should handle PODs out-of-the-box.
@@ -149,7 +145,7 @@ The script will use the default directory of POD components: `app/components`. *
 Your app should be configured to have `podModulePrefix` property in `config/environment.js` if you are using POD but if it somehow doesn't work you can specify it through `--pods-dir` (alias: `-pd`). Like this:
 
 ```bash
-$ npx ember-unused-components --pods --pods-dir="modules/components-repository"
+$ npx @thrash-industries/ember-unused-components --pods --pods-dir="modules/components-repository"
 ```
 
 Configuration
@@ -254,7 +250,7 @@ module.exports = {
 Passing the `--fail-on-unused` flag to the cli:
 
 ```bash
-./node_modules/.bin/ember-unused-components --fail-on-unused
+./node_modules/.bin/@thrash-industries/ember-unused-components --fail-on-unused
 ```
 
 The `.eucrc.js` configuration file takes precedence over the cli argument.
@@ -312,15 +308,15 @@ does not support certain "features" like angle brackets components or module uni
 
 ### Running tests
 
-* `yarn run test`
+* `npm run test`
 
 ### Linting
 
-* `yarn run lint`
+* `npm run lint`
 
 ### Debugging
 
-* `npx ember-unused-components --debug`
+* `npx @thrash-industries/ember-unused-components --debug`
 
 License
 ------------------------------------------------------------------------------
