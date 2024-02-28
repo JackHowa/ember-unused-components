@@ -15,7 +15,7 @@
     "test": "tests"
   },
   "bin": {
-    "ember-unused-components": "./index.js"
+    "@thrash-industries/ember-unused-components": "./index.js"
   },
   "scripts": {
     "lint": "eslint .",
