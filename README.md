@@ -250,7 +250,7 @@ module.exports = {
 Passing the `--fail-on-unused` flag to the cli:
 
 ```bash
-./node_modules/.bin/@thrash-industries/ember-unused-components --fail-on-unused
+./node_modules/.bin/ember-unused-components --fail-on-unused
 ```
 
 The `.eucrc.js` configuration file takes precedence over the cli argument.
