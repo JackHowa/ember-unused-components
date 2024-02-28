@@ -1,4 +1,4 @@
-import test from 'ava';
+const test = require('ava');
 
 const analyser = require('../lib/analyser');
 const utils = require('../lib/utils');
